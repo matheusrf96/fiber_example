@@ -3,7 +3,7 @@ package main
 import (
 	"log"
 
-	"fiber_example/src/controllers"
+	"fiber_example/src/routes"
 
 	"github.com/gofiber/fiber/v2"
 )
@@ -11,7 +11,7 @@ import (
 func main() {
 	app := fiber.New()
 
-	app.Get("/app", controllers.Example)
+	routes.Register(app)
 
 	log.Fatal(app.Listen(":3000"))
 }
