@@ -3,19 +3,15 @@ package main
 import (
 	"log"
 
+	"fiber_example/src/controllers"
+
 	"github.com/gofiber/fiber/v2"
 )
 
 func main() {
 	app := fiber.New()
 
-	app.Get("/", func(c *fiber.Ctx) error {
-		return c.JSON(&fiber.Map{
-			"id":     5,
-			"active": true,
-			"msg":    "Show!",
-		})
-	})
+	app.Get("/app", controllers.Example)
 
 	log.Fatal(app.Listen(":3000"))
 }
